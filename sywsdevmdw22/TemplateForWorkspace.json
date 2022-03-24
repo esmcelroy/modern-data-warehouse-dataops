@@ -666,7 +666,7 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "5d8d2331-6861-460f-b84d-76799cd1eb84"
+						"spark.autotune.trackingId": "e61d563b-77df-4828-8503-fc57cb7f133b"
 					}
 				},
 				"metadata": {
@@ -691,8 +691,7 @@
 						"sparkVersion": "2.4",
 						"nodeCount": 10,
 						"cores": 4,
-						"memory": 28,
-						"automaticScaleJobs": false
+						"memory": 28
 					},
 					"sessionKeepAliveTimeout": 30
 				},
@@ -1034,8 +1033,7 @@
 						"sparkVersion": "2.4",
 						"nodeCount": 10,
 						"cores": 4,
-						"memory": 28,
-						"automaticScaleJobs": false
+						"memory": 28
 					},
 					"sessionKeepAliveTimeout": 30
 				},
@@ -1969,14 +1967,14 @@
 				"libraryRequirements": {
 					"content": "opencensus==0.7.13\n",
 					"filename": "/home/vsts/work/1/ciartifacts/synapse_pool_requirements/requirements.txt",
-					"time": "2022-03-15T23:02:11.8152814Z"
+					"time": "2022-03-17T17:15:24.7023743Z"
 				},
 				"isComputeIsolationEnabled": false,
 				"sessionLevelPackagesEnabled": true,
 				"customLibraries": [
 					{
-						"name": "ddo_transform-1.1.7-py2.py3-none-any.whl",
-						"path": "sywsdevmdw22/libraries/ddo_transform-1.1.7-py2.py3-none-any.whl",
+						"name": "ddo_transform-1.1.13-py2.py3-none-any.whl",
+						"path": "sywsdevmdw22/libraries/ddo_transform-1.1.13-py2.py3-none-any.whl",
 						"containerName": "prep",
 						"uploadedTimestamp": "0001-01-01T00:00:00+00:00",
 						"type": "whl"
@@ -1998,6 +1996,30 @@
 			},
 			"dependsOn": [],
 			"location": "canadacentral"
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/P-demo')]",
+			"type": "Microsoft.Synapse/workspaces/pipelines",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"activities": [
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		}
 	]
 }
